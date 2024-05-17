@@ -1,0 +1,4 @@
+dash==2.16.1
+dash_mantine_components==0.12.1
+pandas==1.5.0
+plotly==5.12.0
