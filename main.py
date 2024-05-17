@@ -1,5 +1,9 @@
 from dash import Dash, html, dcc, callback, Output, Input
 from views import home, apps
+from applications.tbecApp import tbecApp
+from applications.seisScale import seisScale
+from applications.eqProcessor import eqProcessor
+from applications.asceApp import asceApp
 
 app = Dash(__name__, suppress_callback_exceptions=True)
 server = app.server
@@ -19,6 +23,14 @@ def display_page(pathname):
         return home.layout()
     elif pathname == '/apps':
         return apps.layout()
+    elif pathname == '/tbecresponse':
+        return tbecApp.layout()
+    elif pathname == '/seisscale':
+        return seisScale.layout()
+    elif pathname == '/asceapp':
+        return asceApp.layout()
+    elif pathname == '/eqprocessor':
+        return eqProcessor.layout()
     
 if __name__ == '__main__':
     app.run_server(debug=True)

@@ -1,10 +1,14 @@
 from dash import html
-import dash_mantine_components as dmc
+import sys
+sys.path.append('./')
+from components.navbar import navbarComponent, footerComponent
+from components.header import headerComponent
+from components.verse import verseComponent
 
 def layout():
     return html.Div([
-        "This is the HOME",
-        dmc.Anchor(href="/apps", children=["Go To App"]),
-
-        
+    navbarComponent,
+    headerComponent,
+    verseComponent,
+    footerComponent
     ]) 
