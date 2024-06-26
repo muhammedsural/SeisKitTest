@@ -1,5 +1,6 @@
 from dash import Dash, html, dcc, callback, Output, Input
-from views import home, apps
+from views import home, apps, blog, eqmap
+from blog import seisscalelogic, earthquakedatasources
 from applications.tbecApp import tbecApp
 from applications.seisScale import seisScale
 from applications.eqProcessor import eqProcessor
@@ -31,6 +32,14 @@ def display_page(pathname):
         return asceApp.layout()
     elif pathname == '/eqprocessor':
         return eqProcessor.layout()
+    elif pathname == '/blog':
+        return blog.layout()
+    elif pathname == '/eqmap':
+        return eqmap.layout()
+    elif pathname == '/seisscalelogic':
+        return seisscalelogic.layout()
+    elif pathname == '/earthquakedatasources':
+        return earthquakedatasources.layout()
     
 if __name__ == '__main__':
     app.run_server(debug=True)

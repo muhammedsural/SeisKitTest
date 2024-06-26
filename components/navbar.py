@@ -1,5 +1,5 @@
 import dash_mantine_components as dmc
-from dash import html, callback, Input, Output
+from dash import html, callback, Input, Output, State
 from dash_iconify import DashIconify
 import dash_bootstrap_components as dbc
 
@@ -26,8 +26,8 @@ navbarComponent = dmc.Header(
                                 className="d-none d-md-flex justify-content-between align-items-center", 
                                 children=[
                                     dmc.Anchor(href="/apps", children=["Applications"], className="text-white fs-6 me-4", id="appsLabel"),
-                                    dmc.Anchor(href="/home", children=["Blog"], className="text-white fs-6 mx-4", id="blogLabel"),
-                                    dmc.Anchor(href="/home", children=["Earthquake Map"], className="text-white fs-6 ms-4", id="eqMapLabel"),
+                                    dmc.Anchor(href="/blog", children=["Blog"], className="text-white fs-6 mx-4", id="blogLabel"),
+                                    dmc.Anchor(href="/eqmap", children=["Earthquake Map"], className="text-white fs-6 ms-4", id="eqMapLabel"),
                                 ],
                             ),
                             html.Div(
@@ -100,6 +100,16 @@ footerComponent = dmc.Footer(
 )
 def toggle_theme(is_dark):
     return is_dark
+
+@callback(
+    Output('themeSwitch', 'checked'),
+    [Input('url', 'pathname')],
+    State('themeStore', 'data')
+)
+def updateSwitchOnLoad(pathname, stored_theme):
+    if stored_theme is not None:
+        return stored_theme
+    return False
         
 @callback(
     [
@@ -114,8 +124,12 @@ def toggle_theme(is_dark):
         Input('url', 'pathname'),
         Input('themeSwitch', 'checked')
     ],
+    State('themeStore', 'data')
 )
-def initialize_theme(_, is_dark):
+def initialize_theme(_, is_dark, storedTheme):
+    if is_dark is None and storedTheme is not None:
+        is_dark = storedTheme
+    
     if is_dark:
         return [
             "bg-litera border-bottom border-secondary",
@@ -137,11 +151,15 @@ def initialize_theme(_, is_dark):
         
 
 @callback(
-    Output('footerComponent', 'style', allow_duplicate=True),
+    Output('footerComponent', 'style'),
+    Input('url', 'pathname'),
     Input('themeSwitch', 'checked'),
-    prevent_initial_call = True
+    State('themeStore', 'data'),
 )
-def theme_store(is_dark):
+def theme_store(_,is_dark, storedTheme):
+    if is_dark is None and storedTheme is not None:
+        is_dark = storedTheme
+        
     if is_dark:
         return {"backgroundColor": "white", "border-color": "lightGray"}
     else:

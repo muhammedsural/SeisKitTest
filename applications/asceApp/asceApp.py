@@ -212,21 +212,6 @@ def updateGraphs(n_clicks, latitude, longitude, siteCategory, upMulti, upMultiMc
     upTwoMcer['data'] = []
 
     if theme:
-        upMulti['layout']['paper_bgcolor'] = '#222222'
-        upMulti['layout']['plot_bgcolor'] = '#222222'
-        
-        upMultiMcer['layout']['paper_bgcolor'] = '#222222'
-        upMultiMcer['layout']['plot_bgcolor'] = '#222222'
-        
-        upTwo['layout']['paper_bgcolor'] = '#222222'
-        upTwo['layout']['plot_bgcolor'] = '#222222'
-        
-        upTwoMcer['layout']['paper_bgcolor'] = '#222222'
-        upTwoMcer['layout']['plot_bgcolor'] = '#222222'
-
-        
-        lineColor = "#FFFF00"
-    else:
         upMulti['layout']['paper_bgcolor'] = 'white'
         upMulti['layout']['plot_bgcolor'] = 'white'
         upMulti['layout']['template'] = 'plotly_white'
@@ -244,7 +229,22 @@ def updateGraphs(n_clicks, latitude, longitude, siteCategory, upMulti, upMultiMc
         upTwoMcer['layout']['template'] = 'plotly_white'
         
         lineColor = "#000080"
+    else:
+        upMulti['layout']['paper_bgcolor'] = '#222222'
+        upMulti['layout']['plot_bgcolor'] = '#222222'
         
+        upMultiMcer['layout']['paper_bgcolor'] = '#222222'
+        upMultiMcer['layout']['plot_bgcolor'] = '#222222'
+        
+        upTwo['layout']['paper_bgcolor'] = '#222222'
+        upTwo['layout']['plot_bgcolor'] = '#222222'
+        
+        upTwoMcer['layout']['paper_bgcolor'] = '#222222'
+        upTwoMcer['layout']['plot_bgcolor'] = '#222222'
+
+        
+        lineColor = "#FFFF00"
+       
     multiData = getAsceDataMulti(latitude, longitude, 'III', siteCategory, 'Call')
     multiMcerData = getAsceDataMultiMCEr(latitude, longitude, 'III', siteCategory, 'Call')
     twoPeriodData = getAsceDataTwo(latitude, longitude, 'III', siteCategory, 'Call')

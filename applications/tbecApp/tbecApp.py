@@ -25,7 +25,7 @@ theme = dcc.Store(id='themeStore', storage_type='session')
 horizotanlResponseFig = go.Figure()
 horizotanlResponseFig.update_xaxes(
                             title_text = 'Period (s)',
-                            range = [0,3]
+                            range = [0,3],
                         )
 
 horizotanlResponseFig.update_yaxes(
@@ -226,9 +226,10 @@ def update_spectral_values_and_figures(n_clicks, latitude, longitude, soil_type,
     returnedSpectralValues, tList, saList, sadList, spectralValuesDict = tbecTargetSpectrum(latitude, longitude, soil_type, intensity_level)
     
     if theme:
-        lineColor = "#FFFF00"
-    else:
         lineColor = "#000080"
+    else:
+        lineColor = "#FFFF00"
+        
         
     horizontalTrace = go.Scatter(x=tList, y=saList, line=dict(color=lineColor))
     verticalTrace = go.Scatter(x=tList, y=sadList, line=dict(color=lineColor))
