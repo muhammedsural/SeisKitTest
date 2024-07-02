@@ -12,7 +12,7 @@ navbarComponent = dmc.Header(
     id="navbarComponent",
     height=70,
     p="md",
-    className="bg-dark border-bottom border-secondary",
+    className="navbarComponent bg-dark border-bottom border-secondary",
     children=[
         dbc.Container(fluid=True, children=[
             dbc.Row(
@@ -27,7 +27,7 @@ navbarComponent = dmc.Header(
                                 children=[
                                     dmc.Anchor(href="/apps", children=["Applications"], className="text-white fs-6 me-4", id="appsLabel"),
                                     dmc.Anchor(href="/blog", children=["Blog"], className="text-white fs-6 mx-4", id="blogLabel"),
-                                    dmc.Anchor(href="/eqmap", children=["Earthquake Map"], className="text-white fs-6 ms-4", id="eqMapLabel"),
+                                    dmc.Anchor(href="/about", children=["About"], className="text-white fs-6 ms-4", id="eqMapLabel"),
                                 ],
                             ),
                             html.Div(

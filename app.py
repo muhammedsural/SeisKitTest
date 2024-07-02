@@ -1,5 +1,5 @@
 from dash import Dash, html, dcc, callback, Output, Input
-from views import home, apps, blog, eqmap
+from views import about, home, apps, blog
 from blog import seisscalelogic, earthquakedatasources
 from applications.tbecApp import tbecApp
 from applications.seisScale import seisScale
@@ -10,9 +10,19 @@ app = Dash(__name__, suppress_callback_exceptions=True)
 server = app.server
 
 app.layout = html.Div([
-    dcc.Location(id='url', refresh=False),
+    dcc.Location(id='url', refresh=True),
     dcc.Store(id='themeStore', storage_type='session'),
-    html.Div(id='page-content')
+    html.Div(id='page-content'),
+    html.Script('''
+        (function() {
+            var currentPathname = window.location.pathname;
+            window.addEventListener('popstate', function(event) {
+                if (currentPathname !== window.location.pathname) {
+                    window.location.reload();
+                }
+            });
+        })();
+    ''')
 ])
 
 @callback(Output('page-content', 'children'),
@@ -34,8 +44,8 @@ def display_page(pathname):
         return eqProcessor.layout()
     elif pathname == '/blog':
         return blog.layout()
-    elif pathname == '/eqmap':
-        return eqmap.layout()
+    elif pathname == '/about':
+        return about.layout()
     elif pathname == '/seisscalelogic':
         return seisscalelogic.layout()
     elif pathname == '/earthquakedatasources':
