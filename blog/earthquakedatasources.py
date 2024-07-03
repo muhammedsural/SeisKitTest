@@ -7,7 +7,7 @@ from components.navbar import navbarComponent, footerComponent
 body = html.Div(className="col-12 col-md-12 mt-4 text-center", children=[
                 dcc.Markdown('''
 
-                    ## Earthquake data sources
+                    ## Earthquake Data Sources
                     Lorem ipsum dolor sit amet, consectetur adipiscing elit. 
                     Praesent viverra nisi at nisi ultricies, at dapibus felis pretium. 
                     Suspendisse potenti. Integer in ex vitae augue vehicula consectetur.
