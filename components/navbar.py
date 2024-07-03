@@ -34,7 +34,7 @@ navbarComponent = dmc.Header(
                                 className="d-flex align-items-center",
                                 children=[
                                     get_icon("mdi:github", "https://github.com/dogukankaratas/SeisKit"),
-                                    get_icon("mdi:slack", "https://join.slack.com/t/seiskit/shared_invite/zt-2bb7zi6f4-d6E~TJ9QmBfNutV6bEmNHA"),
+                                    get_icon("ic:baseline-discord", "https://discord.gg/eXxT9NWZ"),
                                     html.Div(
                                         className="d-none d-md-flex align-items-center ms-2 me-4",
                                         children=[
@@ -81,10 +81,10 @@ footerComponent = dmc.Footer(
                     ]
                 ),
         dmc.Anchor(
-                    href="https://join.slack.com/t/seiskit/shared_invite/zt-2bb7zi6f4-d6E~TJ9QmBfNutV6bEmNHA",
+                    href="https://discord.gg/eXxT9NWZ",
                     target='_blank',
                     children=[ 
-                       dmc.ActionIcon(DashIconify(icon="fa6-brands:slack"), color="gray")
+                       dmc.ActionIcon(DashIconify(icon="fa6-brands:discord"), color="gray")
                     ]
                 )
     ], style={"display": "flex", "justify-content": "center", "margin": "10px"}
