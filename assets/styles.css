@@ -2,3 +2,19 @@
     margin-left: 20rem;
     margin-right: 20rem;
 }
+
+/* Define the keyframes for the opacity animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* Apply the animation to the page-content element */
+#page-content > div {
+    animation: fadeIn 1s forwards;
+}
+

@@ -92,10 +92,10 @@ verseComponent = html.Div([
                             dmc.Space(h=30),
                             html.Div(dmc.Text("Get in touch with the app creators and other users.", className="fs-6")),
                             dmc.Space(h=30),
-                            html.Div(dmc.Text("Join our Slack group.", className="fs-6")),
+                            html.Div(dmc.Text("Join our Discord group.", className="fs-6")),
                             dmc.Space(h=30),
                             html.Div([
-                                dbc.Button("Join Slack", outline=True, color="primary", id="sourceCodeButton", href='https://join.slack.com/t/seiskit/shared_invite/zt-2bb7zi6f4-d6E~TJ9QmBfNutV6bEmNHA', target='_blank'),
+                                dbc.Button("Join Discord", outline=True, color="primary", id="sourceCodeButton", href='https://discord.gg/eXxT9NWZ', target='_blank'),
                                 ], className="d-grid gap-2 d-md-flex justify-content-md-start")
                         ], 
                         className='mt-3'),
